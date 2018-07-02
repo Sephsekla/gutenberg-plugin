@@ -252,7 +252,28 @@
 				)
 			];
 		},
-        save: {} /* Placeholder */
+        
+save: function( props ) {
+	var attributes = props.attributes;
+	var alignment = props.attributes.alignment;
+
+	return (
+		el( 'div', { className: props.className + ' gfblocks-cols-' + attributes.columns },
+			el( 'div', {
+				className: 'gfblocks-block gfblocks-block-1'
+			},
+				attributes.mediaURLOne &&
+				el( 'div', { className: 'gfblocks-feature-image gfblocks-feature-image-1', style: {} },
+					el( 'img', { src: attributes.mediaURLOne } ),
+				),
+				el( 'div', { className: 'gfblocks-feature-content gfblocks-feature-content-1', style: { textAlign: attributes.alignment } },
+					el( 'h3', { className: 'gfblocks-title-1' }, attributes.titleOne ),
+					el( 'p', { className: 'gfblocks-text-1' }, attributes.textOne ),
+				),
+			),
+		)
+	);
+},
       })
     
   } )(
